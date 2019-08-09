@@ -10,6 +10,7 @@ from sys import stdout
 #host = "hub's ip"
 #username = "hub's username"
 #password = "hub's password"
+#device = device's Insteon ID
 # or comment out the import config and manually specify below
 
 try:
@@ -36,7 +37,7 @@ except requests.exceptions.RequestException as e:
        print(e)
        sys.exit(1)
 
-dimmer1 = hub.dimmer('502739')
+dimmer1 = hub.dimmer(config.device)
 
 # set to argument if included
 if(len(sys.argv)==2):
