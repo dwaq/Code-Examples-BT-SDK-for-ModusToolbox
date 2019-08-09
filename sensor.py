@@ -36,10 +36,16 @@ while(True):
             last_time = elapsed_time
 
             print("Motion Detected:", end =" ")
-            print(data_packet[5][-2:])
+            raw_value=data_packet[5][-2:]
+            print(raw_value)
 
             # turn lights on when motion detected
-            os.system('python control-insteon.py 100')
+            if(raw_value=="01"):
+                os.system('python control-insteon.py 100')
+            # turn lights off when motion no longer detected
+            elif(raw_value=="00"):
+                os.system('python control-insteon.py 0')
+            
         elif(data_packet[3][-2:] == "4f"):
             #print("Temperature Read:", end =" ")
             # convert from string to int
