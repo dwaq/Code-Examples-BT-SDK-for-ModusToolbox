@@ -5,8 +5,7 @@ ser = serial.Serial('COM17', 921600)
 
 data_packet=[]
 
-i=0
-while(i<25):
+while(True):
     line = ser.readline()
 
     # start of data packet
@@ -34,7 +33,5 @@ while(i<25):
             print(temp)
         else:
             print("Unknown Data")
-
-    i=i+1
 
 ser.close()
