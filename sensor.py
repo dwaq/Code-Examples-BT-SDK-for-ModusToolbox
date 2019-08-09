@@ -33,10 +33,10 @@ while(True):
             # turn lights on when motion detected
             os.system('python control-insteon.py 100')
         elif(data_packet[3][-2:] == "4f"):
-            print("Temperature Read:", end =" ")
+            #print("Temperature Read:", end =" ")
             # convert from string to int
             temp = int(data_packet[5][-2:], 16)
-            print(temp)
+            #print(temp)
         else:
             print("Unknown Data")
 
