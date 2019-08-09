@@ -1,4 +1,5 @@
 import serial
+import os
 
 ser = serial.Serial('COM17', 921600)
 
@@ -23,6 +24,9 @@ while(i<25):
         if(data_packet[3][-2:] == "4d"):
             print("Motion Detected:", end =" ")
             print(data_packet[5][-2:])
+
+            # turn lights on when motion detected
+            os.system('python control-insteon.py 100')
         elif(data_packet[3][-2:] == "4f"):
             print("Temperature Read:", end =" ")
             # convert from string to int
