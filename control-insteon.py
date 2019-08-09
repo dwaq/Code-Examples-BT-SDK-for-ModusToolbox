@@ -14,8 +14,8 @@ from sys import stdout
 
 try:
     FORMAT = '[%(asctime)s] (%(filename)s:%(lineno)s) %(message)s'
-    #logging.basicConfig(format=FORMAT, level=logging.DEBUG, filename='/tmp/insteonlocal.log')
-    logging.basicConfig(format=FORMAT, level=logging.DEBUG)
+    logging.basicConfig(format=FORMAT, level=logging.DEBUG, filename='insteon.log')
+    #logging.basicConfig(format=FORMAT, level=logging.DEBUG)
     logger = logging.getLogger('')
 
     # create hub object
