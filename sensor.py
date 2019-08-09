@@ -3,6 +3,7 @@ import os
 import time
 
 start_time = time.time()
+last_time = 0
 
 ser = serial.Serial('COM17', 921600)
 
@@ -22,11 +23,18 @@ while(True):
 
     # recieved the whole packet
     if(len(data_packet)==6):
-        # print elapsed time
-        print('{:4.2f}'.format(time.time() - start_time), end=" ")
+        
 
         # check the property_id
         if(data_packet[3][-2:] == "4d"):
+            elapsed_time = time.time() - start_time
+            print('{:4.2f}'.format(elapsed_time), end=" ")
+
+            time_diff = elapsed_time - last_time
+            print('{:4.2f}'.format(time_diff), end=" ")
+
+            last_time = elapsed_time
+
             print("Motion Detected:", end =" ")
             print(data_packet[5][-2:])
 
