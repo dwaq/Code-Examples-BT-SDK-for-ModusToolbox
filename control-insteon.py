@@ -30,12 +30,12 @@ try:
     )
     buffer = hub.get_buffer_status()
 except requests.exceptions.RequestException as e:
-   if hub.http_code == 401:
-       print("Unauthorized...check user/pass for hub\n")
-       sys.exit(1)
-   else:
-       print(e)
-       sys.exit(1)
+    if hub.http_code == 401:
+        print("Unauthorized...check user/pass for hub\n")
+        sys.exit(1)
+    else:
+        print(e)
+        sys.exit(1)
 
 dimmer1 = hub.dimmer(config.device)
 
