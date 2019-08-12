@@ -37,11 +37,12 @@ except requests.exceptions.RequestException as e:
         print(e)
         sys.exit(1)
 
+# set up dimmer
 dimmer1 = hub.dimmer(config.device)
 
-# set to argument if included
+# set brightness to argument if included
 if(len(sys.argv)==2):
     dimmer1.on(sys.argv[1])
-# otherwise turn off    
+# otherwise turn off light
 else:    
     dimmer1.on(0)
