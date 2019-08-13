@@ -25,6 +25,15 @@ while(True):
 
     #print(data_packet)
 
+    '''
+    # here is an example of a motion data packet:
+    company_id:ffff opcode:52
+    sensor clt msg:113
+    property_id:004d
+    prop_value_len:1
+    Raw val 01
+    '''
+
     # received the whole packet (6 lines long)
     if(len(data_packet)==6):
         # check the property_id (last 2 chars in 3rd message)
